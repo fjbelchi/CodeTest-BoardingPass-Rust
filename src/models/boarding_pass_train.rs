@@ -1,14 +1,14 @@
 use models::city::City;
 use models::boarding_pass::BoardingPass;
 
-pub struct BoardingPassTrain<'a> {
+pub struct BoardingPassTrain {
     boarding_id: &'static str,
-    city_from: &'a City,
-    city_to: &'a City
+    city_from: City,
+    city_to: City,
 }
 
 
-impl<'a> BoardingPass for BoardingPassTrain<'a>  {
+impl BoardingPass for BoardingPassTrain {
 
     fn boarding_id(&self) -> &str {
         &self.boarding_id
@@ -23,8 +23,8 @@ impl<'a> BoardingPass for BoardingPassTrain<'a>  {
     }
 }
 
-impl<'a> BoardingPassTrain<'a>  {
-    pub fn new(boarding_id: &'static str, city_from: &'a City, city_to: &'a City) -> BoardingPassTrain<'a> {
+impl BoardingPassTrain {
+    pub fn new(boarding_id: &'static str, city_from: City, city_to: City) -> BoardingPassTrain {
         BoardingPassTrain {
             boarding_id: boarding_id,
             city_from: city_from,
