@@ -10,10 +10,10 @@ impl BoardingPassGenerator {
         let madrid = City::new("Madrid".to_string());
         let barna = City::new("Barna".to_string());
 
-        let madrid_barna = BoardingPassTrain::new("1", &madrid, &barna);
+        let madrid_barna = BoardingPassTrain::new("1", madrid.clone(), barna.clone());
         vector.push(Box::new(madrid_barna));
 
-        let barna_madrid = BoardingPassTrain::new("2", &barna, &madrid);
+        let barna_madrid = BoardingPassTrain::new("2", barna.clone(), madrid.clone());
         vector.push(Box::new(barna_madrid));
         
         vector
