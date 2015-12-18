@@ -1,12 +1,13 @@
 use models::city::City;
 use models::boarding_pass::BoardingPass;
 
+#[derive(Hash, PartialEq, Eq, Debug)]
 struct BoardingPassBus<'a> {
     boarding_id: &'static str,
     city_from: &'a City,
     city_to: &'a City,
     seat: &'a str,
-    bus_number: i32
+    bus_number: i32,
 }
 
 impl<'a> BoardingPass for BoardingPassBus<'a> {
@@ -23,14 +24,19 @@ impl<'a> BoardingPass for BoardingPassBus<'a> {
     }
 }
 
-impl<'a> BoardingPassBus<'a>  {
-    fn new(boarding_id: &'static str, city_from: &'a City, city_to: &'a City, seat: &'a str, bus_number: i32) -> BoardingPassBus<'a> {
+impl<'a> BoardingPassBus<'a> {
+    fn new(boarding_id: &'static str,
+           city_from: &'a City,
+           city_to: &'a City,
+           seat: &'a str,
+           bus_number: i32)
+           -> BoardingPassBus<'a> {
         BoardingPassBus {
             boarding_id: boarding_id,
             city_from: city_from,
             city_to: city_to,
             seat: seat,
-            bus_number: bus_number
+            bus_number: bus_number,
         }
     }
 }
