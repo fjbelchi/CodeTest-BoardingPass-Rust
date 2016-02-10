@@ -1,6 +1,7 @@
 use models::boarding_pass::BoardingPass;
 use models::city::City;
 use models::boarding_pass_train::BoardingPassTrain;
+use models::boarding_pass_bus::BoardingPassBus;
 
 pub struct BoardingPassGenerator {
     madrid: City,
@@ -24,6 +25,9 @@ impl BoardingPassGenerator {
         let barna_madrid = BoardingPassTrain::new("2", &self.barna, &self.madrid);
         vector.push(Box::new(barna_madrid));
 
+        let madrid_barna_bus = BoardingPassBus::new("3", &self.madrid, &self.barna, "13A", 32);
+        vector.push(Box::new(madrid_barna_bus));
+        
         vector
     }
 }

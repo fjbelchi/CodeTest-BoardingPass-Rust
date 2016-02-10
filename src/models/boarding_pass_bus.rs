@@ -2,7 +2,7 @@ use models::city::City;
 use models::boarding_pass::BoardingPass;
 
 #[derive(Hash, PartialEq, Eq, Debug)]
-struct BoardingPassBus<'a> {
+pub struct BoardingPassBus<'a> {
     boarding_id: &'static str,
     city_from: &'a City,
     city_to: &'a City,
@@ -25,7 +25,7 @@ impl<'a> BoardingPass for BoardingPassBus<'a> {
 }
 
 impl<'a> BoardingPassBus<'a> {
-    fn new(boarding_id: &'static str,
+    pub fn new(boarding_id: &'static str,
            city_from: &'a City,
            city_to: &'a City,
            seat: &'a str,
